@@ -1,0 +1,12 @@
+
+
+<div class="col-12">
+    <div class="col-sm-3" *ngFor="let item of shops">
+        <a routerLink="{{item.shopName}}">
+            <div class="card">
+                <img [src]="item.logo" alt="logo">
+                <p class="details text-info">{{item.shopName}}</p>
+            </div>
+        </a>
+    </div>
+</div>

@@ -1,0 +1,18 @@
+
+
+<div class="view">
+    <div class="col-12 content">
+        <div class="col-sm-3 text-center" (click)="router('clothes')"  data-aos="fade-down" data-aos-duration="1000">
+            <img [src]="src_clothes" alt="man">
+            <a routerLink="/clothes" class="clothes"> ملابس</a>
+        </div>
+        <div class="col-sm-3 text-center"  data-aos="fade-down" data-aos-duration="2000">
+            <img [src]="src_shoes" alt="man" (click)="router('shoes')">
+            <a routerLink="/shoes" class="clothes"> احذية</a>
+        </div>
+        <div class="col-sm-3 text-center"  data-aos="fade-down" data-aos-duration="3000">
+            <img src="assets/offer.jpg" alt="man" (click)="router('offer')">
+            <a routerLink="/offer" class="clothes"> عروض</a>
+        </div>
+    </div>
+</div>

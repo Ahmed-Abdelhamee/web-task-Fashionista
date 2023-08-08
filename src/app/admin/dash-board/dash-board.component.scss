@@ -1,0 +1,78 @@
+
+
+@media screen and (max-width:600px) {
+    div.col-12{
+        padding: 0;
+    }
+    div .left-side{
+        width: 100%;
+        display: flex;
+        justify-content: space-around;
+        height: auto;
+        padding: 10px;
+    }
+    div .left-side button{
+        width: fit-content;
+        margin: 0px;
+    }
+    div .right-side{
+        width: 100%;
+        padding: 5px;
+        padding-bottom: 150px;
+        font-size: 16px;
+    }
+
+}
+
+.left-side{
+    width: 28%;
+    background-color: aliceblue;
+    float: left;
+    height: 100vh;
+    margin-right: 1%;
+    padding-top: 40vh;
+}
+.left-side button{
+    width: 98%;
+    margin-left: 1%;
+    margin-bottom: 20px;
+    text-transform: capitalize;
+}
+.right-side{
+    width: 70%;
+    float: left;
+}
+form{
+    margin: 25px 0px;
+}
+button{
+    text-transform: capitalize;
+}
+label{
+    text-transform: capitalize;
+}
+
+.logo-photo{
+    width: 80px;
+    margin: 7px;
+    border-radius: 10px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

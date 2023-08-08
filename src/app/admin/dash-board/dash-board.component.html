@@ -1,0 +1,64 @@
+
+
+<div class="col-12">
+    <div class="left-side">
+        <button class="btn btn-outline-primary" routerLink="">Home</button>
+        <button class="btn btn-outline-primary" (click)="show('formShop')">add shop</button>
+        <button class="btn btn-outline-primary" (click)="show('formProducts')">add products</button>
+    </div>
+    <div class="right-side" id="form1" >
+        <form [formGroup]="shop" class="card p-2" (ngSubmit)="createShop()"  *ngIf="showForm1">
+            <div class="form-group">
+              <label for="shopName">Shop Name</label>
+              <input type="text" class="form-control" id="shopName" aria-describedby="..." formControlName="shopName">
+            </div>
+            <div class="form-group">
+              <label for="logo">shop logo</label>
+              <input type="file" class="form-control" id="logo"  (change)=" uploadImg($event)">
+              <span class="text-warning" *ngIf="uploading"> uploading ... </span> <span><img src="{{logo}}" alt="" class="logo-photo"></span>
+            </div>
+            <div class="text-center">
+                <button type="submit" class="btn btn-primary" >create shop</button>
+            </div>
+          </form>
+
+          <form [formGroup]="product" class="card p-2" (ngSubmit)="createProduct()" id="form2"  *ngIf="!showForm1">
+            <div class="form-group">
+              <label for="productPhoto">product Photo</label> 
+              <span><img src="{{productPhoto}}" alt="" class="logo-photo"></span>
+              <input type="file" class="form-control" id="productPhoto" aria-describedby="..." (change)="uploadProductsImg($event)">
+              <span class="text-warning" *ngIf="uploading"> uploading ... </span> 
+            </div>
+            <div class="form-group">
+              <label for="type">type</label>
+              <input type="text" class="form-control" id="type" aria-describedby="..." formControlName="type">
+            </div>
+            <div class="form-group">
+                <label for="price">price</label>
+                <input type="text" class="form-control" id="price" aria-describedby="..." formControlName="price">
+              </div>
+            <div class="form-group">
+                <label for="details">details</label>
+                <input type="text" class="form-control" id="details" aria-describedby="..." formControlName="details">
+              </div>
+              <div class="form-group">
+                <label for="gender">gender</label>
+                <input type="text" class="form-control" id="gender" aria-describedby="..." formControlName="gender">
+              </div>
+            <div class="form-group">
+                <label for="shopName">Shop Name</label>
+                <input type="text" class="form-control" id="shopName" aria-describedby="..." formControlName="shopName">
+              </div>
+              <div class="form-group">
+                <p>offer : </p>
+                <label for="offerYes" class="m-2 text-success"> yes : </label>
+                <input type="radio" name="offerValue" value="true" id="offerYes" (click)="setOffer('yes')">
+                <label for="offerNo" class="m-2 text-danger"> No : </label>
+                <input type="radio" name="offerValue" value="false" id="offerNo" (click)="setOffer('no')">
+              </div>
+            <div class="text-center">
+                <button type="submit" class="btn btn-primary">add product</button>
+            </div>
+        </form>
+    </div>
+</div>

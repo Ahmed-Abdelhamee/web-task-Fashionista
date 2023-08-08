@@ -1,0 +1,77 @@
+*{
+    box-sizing: border-box;
+    transition: .5s;
+    scroll-behavior: smooth;
+}
+
+[class*="col-"]{
+      float: left;
+}
+
+@media screen and (max-width:600px) {
+    div.col-12 {
+        padding-bottom: 250px;
+    }
+}
+.container{
+    height: 100%;
+}
+
+.col-sm-3{
+    padding: 15px 25px;
+}
+.card{
+    border-radius: 10px;
+}
+
+img{
+    height: 210px;
+    width: 100%;
+    border-radius: 10px;
+    border-bottom-left-radius: 0px;
+    border-bottom-right-radius: 0px;
+}
+.details{
+    text-align: center;
+    padding: 0px 5px;
+    font-weight: 600;
+    font-size: 21px;
+}
+.div-btn-buy{
+    display: flex;
+    justify-content: center;
+}
+.btn{
+    position: relative;
+    min-width: 100px;
+    width: 100%;
+    color: white;
+    font-weight: 600;
+    font-size: 18px;
+    padding: 8px;
+    border-radius: 15px;
+    border-bottom-left-radius: 0px;
+    border-bottom-right-radius: 0px;
+    margin-bottom: 5px;
+    z-index: 1;
+    background-color: #474541;
+    border: none;
+}
+.div-btn-buy .btn::before{
+    position: absolute;
+    content: "";
+    bottom: 0;
+    left: 0;
+    width: 0%;
+    height: 100%;
+    padding-top: 7px;
+    z-index: -2;
+    transition: .5s;
+}
+.div-btn-buy:hover .btn::before{
+    width: 100%;
+    border-radius: 15px;
+    border-bottom-left-radius: 0px;
+    border-bottom-right-radius: 0px;
+    background-color: red;
+}

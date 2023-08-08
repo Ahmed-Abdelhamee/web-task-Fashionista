@@ -1,0 +1,27 @@
+*{
+    box-sizing: border-box;
+    transition: .5s;
+    scroll-behavior: smooth;
+}
+
+[class*="col-"]{
+      float: left;
+}
+
+.col-sm-3{
+    padding: 15px;
+}
+
+.col-12{
+    padding-bottom: 150px;
+}
+img{
+    height: 250px;
+    width: 100%;
+}
+.details{
+    text-align: center;
+    padding: 15px;
+    font-weight: 600;
+    font-size: 23px;
+}
