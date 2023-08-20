@@ -2,9 +2,10 @@
 
 <div class="col-12">
     <div class="left-side">
-        <button class="btn btn-outline-primary" routerLink="">Home</button>
-        <button class="btn btn-outline-primary" (click)="show('formShop')">add shop</button>
-        <button class="btn btn-outline-primary" (click)="show('formProducts')">add products</button>
+        <button class="btn btn-outline-info" routerLink="">Home</button>
+        <button class="btn btn-outline-info" (click)="show('formShop')">add shop</button>
+        <button class="btn btn-outline-info" (click)="show('formProducts')">add products</button>
+        <button class="btn btn-outline-info" (click)="show('userMsgs')">users msg</button>
     </div>
     <div class="right-side" id="form1" >
         <form [formGroup]="shop" class="card p-2" (ngSubmit)="createShop()"  *ngIf="showForm1">
@@ -13,16 +14,24 @@
               <input type="text" class="form-control" id="shopName" aria-describedby="..." formControlName="shopName">
             </div>
             <div class="form-group">
+              <label for="phone">phone</label>
+              <input type="text" class="form-control" id="phone" aria-describedby="..." formControlName="phone">
+            </div>
+            <div class="form-group">
+              <label for="location">location</label>
+              <input type="text" class="form-control" id="location" aria-describedby="..." formControlName="location">
+            </div>
+            <div class="form-group">
               <label for="logo">shop logo</label>
               <input type="file" class="form-control" id="logo"  (change)=" uploadImg($event)">
               <span class="text-warning" *ngIf="uploading"> uploading ... </span> <span><img src="{{logo}}" alt="" class="logo-photo"></span>
             </div>
             <div class="text-center">
-                <button type="submit" class="btn btn-primary" >create shop</button>
+                <button type="submit" class="btn btn-info" >create shop</button>
             </div>
           </form>
 
-          <form [formGroup]="product" class="card p-2" (ngSubmit)="createProduct()" id="form2"  *ngIf="!showForm1">
+          <form [formGroup]="product" class="card p-2" (ngSubmit)="createProduct()" id="form2"  *ngIf="showForm2">
             <div class="form-group">
               <label for="productPhoto">product Photo</label> 
               <span><img src="{{productPhoto}}" alt="" class="logo-photo"></span>
@@ -30,7 +39,15 @@
               <span class="text-warning" *ngIf="uploading"> uploading ... </span> 
             </div>
             <div class="form-group">
-              <label for="type">type</label>
+              <label for="shopPhone">Shop Phone</label>
+              <input type="text" class="form-control" id="shopPhone" aria-describedby="..." formControlName="shopPhone">
+            </div>
+            <div class="form-group">
+              <label for="gender">for gender</label>
+              <input type="text" class="form-control" id="gender" aria-describedby="..." formControlName="gender">
+            </div>
+            <div class="form-group">
+              <label for="type">type of product</label>
               <input type="text" class="form-control" id="type" aria-describedby="..." formControlName="type">
             </div>
             <div class="form-group">
@@ -42,23 +59,63 @@
                 <input type="text" class="form-control" id="details" aria-describedby="..." formControlName="details">
               </div>
               <div class="form-group">
-                <label for="gender">gender</label>
-                <input type="text" class="form-control" id="gender" aria-describedby="..." formControlName="gender">
-              </div>
-            <div class="form-group">
-                <label for="shopName">Shop Name</label>
-                <input type="text" class="form-control" id="shopName" aria-describedby="..." formControlName="shopName">
-              </div>
-              <div class="form-group">
-                <p>offer : </p>
+                <label for="" class="mr-2">offer : </label>
                 <label for="offerYes" class="m-2 text-success"> yes : </label>
                 <input type="radio" name="offerValue" value="true" id="offerYes" (click)="setOffer('yes')">
                 <label for="offerNo" class="m-2 text-danger"> No : </label>
                 <input type="radio" name="offerValue" value="false" id="offerNo" (click)="setOffer('no')">
               </div>
             <div class="text-center">
-                <button type="submit" class="btn btn-primary">add product</button>
+                <button type="submit" class="btn btn-info">add product</button>
             </div>
         </form>
+
+        <div class="col-12" *ngIf="userMsgshow" >
+          <table class="table table-striped">
+            <thead>
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">name</th>
+                <th scope="col">phone</th>
+                <th scope="col">email</th>
+                <th scope="col">Message</th>
+                <th scope="col" colspan="2"></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let item of userMsgs; let i = index">
+                <th scope="row">{{i+1}}</th>
+                <td>{{item.name}}</td>
+                <td>{{item.phone}}</td>
+                <td>{{item.email}}</td>
+                <td>{{item.msg}}</td>
+                <td> <button class="btn btn-warning mr-2" (click)="showMsg(item)"  data-toggle="modal" data-target="#exampleModal">show</button></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
     </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <p><b>name : </b> {{msgShow.name}}</p>
+        <p><b>phone : </b> {{msgShow.phone}}</p>
+        <p><b>email : </b> {{msgShow.email}}</p>
+        <p><b>msg : </b> {{msgShow.msg}}</p>
+        <p><b>id : </b> {{msgShow.id}}</p>
+        <div class="d-flex justify-content-center">
+          <button class="btn btn-danger" (click)="deleteMsg(msgShow)">delete</button>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>

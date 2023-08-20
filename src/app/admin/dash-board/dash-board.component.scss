@@ -14,6 +14,9 @@
     div .left-side button{
         width: fit-content;
         margin: 0px;
+        font-size: 12px;
+        padding: 5px 8px;
+        font-size: 3.4vw ;
     }
     div .right-side{
         width: 100%;
@@ -21,16 +24,38 @@
         padding-bottom: 150px;
         font-size: 16px;
     }
+    div div div table thead tr{
+        font-size: 14px;
+        word-break: normal;
+    }
+    div div div table tbody th{
+        width: calc(100% / 6);
+    }
+    div div div table thead tr th:nth-of-type(4),
+    div div div table thead tr th:nth-of-type(5),
+    div div div table tbody tr td:nth-of-type(3),
+    div div div table tbody tr td:nth-of-type(4){
+        display: none;
+    }
+    .modal .modal-dialog .modal-content .modal-body p{
+        font-size: 13px;
+        font-weight: 500;
+    }
+    .modal .modal-dialog .modal-content .modal-body  div .btn-danger,
+    div div div table tbody tr td button{
+        font-size: 13px;
+    }
 
 }
 
 .left-side{
     width: 28%;
-    background-color: aliceblue;
+    background-color: #f6f9fd;
     float: left;
     height: 100vh;
     margin-right: 1%;
-    padding-top: 40vh;
+    padding: 15px;
+    box-shadow: 0px 0px 6px gray;
 }
 .left-side button{
     width: 98%;
@@ -45,21 +70,39 @@
 form{
     margin: 25px 0px;
 }
+.form-group{
+    margin-bottom: 4px;
+}
 button{
     text-transform: capitalize;
 }
 label{
     text-transform: capitalize;
+    margin-bottom: 1px;
+    font-weight: 500;
 }
-
+input[type="file"]{
+    padding: 3px;
+}
 .logo-photo{
     width: 80px;
     margin: 7px;
     border-radius: 10px;
 }
-
-
-
+b{
+    font-weight: 600;
+    text-transform: capitalize;
+    margin: 8px;
+}
+td{
+    width: calc(100% / 6);
+    overflow: hidden;
+    word-break: break-all;
+    font-size: 14px;
+}
+.btn-warning{
+    word-break: normal;
+}
 
 
 

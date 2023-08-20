@@ -1,0 +1,72 @@
+*{
+    box-sizing: border-box;
+    transition: .5s;
+    scroll-behavior: smooth;
+    direction: ltr;
+}
+
+[class*="col-"]{
+      float: left;
+}
+.col-12{
+    padding: 0%;
+}
+
+  $headColor :#366d5d;
+ 
+@media only screen and (max-width: 768px) {
+    /* For mobile phones: */
+     /* ---------- header------------ */
+     [class*="col-"] {
+      width: 100%;
+     }
+     .navbar .navbar-brand {
+        text-align: center;
+     }
+      div div ul li .dropdown-menu{
+        text-align: center;
+        color: white;
+        background-image: linear-gradient(45deg, $headColor , white);
+     }
+     /* ---------------------- */
+}
+/* ------------------- header -----------------  */
+.navbar{
+    padding: 15px;
+    color: white;
+    background-image: linear-gradient(45deg, $headColor , white);
+}
+.navbar-brand{
+    font-family: "Lemonada", cursive;
+    font-size: 24px;
+    padding-left: 20px;
+    float: right;
+    text-shadow: 0px 0px 6px black;
+}
+.navbar-light .navbar-nav .nav-link {
+    color: rgba(0,0,0,.5);
+    font-size: 17px;
+}
+.links ul li .dropdown-menu a{
+    font-size: 16px;
+}
+.active{
+    border-radius: 4px;
+    background-color: rgb(209 209 209 / 52%);
+}
+.navbar-dark .navbar-nav .nav-link{
+    color: rgba(255,255,255);
+    margin: 0px 5px;
+    text-transform: capitalize;
+    font-weight: 600;
+    text-align: center;
+}
+.dropdown-menu{
+    background-image: linear-gradient(45deg, $headColor , white);
+ }
+.dropdown-item{
+    color: white;
+    text-align: center;
+}
+
+/* -------------------------------------------------- */

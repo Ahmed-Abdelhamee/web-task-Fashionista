@@ -11,4 +11,17 @@
             </div>
         </div>
    </div>
+   <div class="col-12">
+        <div class="btns">
+            <button class="map-btn" (click)="mapShow()"> موقع الشركة </button>
+            <a class="map-btn" href="https://wa.me/+2{{shopPhone}}" > <img src="assets/whatsapp.png" class="whatsApp" alt="">اتصل بنا </a>
+        </div>
+        <div class="container">
+            <iframe  *ngIf="showMap"  class="container map" [src]="shoplocation| urlSafe" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe> 
+        </div>
+        <a routerLink="/chat-us">
+            <button class="chat"><img src="assets/chat.png" alt=""></button>
+        </a>
+   </div>
+   
 </div>

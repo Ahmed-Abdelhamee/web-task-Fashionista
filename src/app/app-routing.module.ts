@@ -5,6 +5,7 @@ import { HomeComponent } from './home/home.component';
 import { ShopsComponent } from './shops/shops.component';
 import { ShopsProductsComponent } from './shops-products/shops-products.component';
 import { CategoryComponent } from './category/category.component';
+import { ChatUsComponent } from './chat-us/chat-us.component';
 
 const routes: Routes = [
   {path:"",component:HomeComponent},
@@ -12,7 +13,8 @@ const routes: Routes = [
   {path:"shops/:id",component:CategoryComponent},
   {path:"shops/:id/:id",component:ShopsComponent},
   {path:"shops/:id/:id/:id",component:ShopsProductsComponent},
-  {path:"dash",component:DashBoardComponent}
+  {path:"dash",component:DashBoardComponent},
+  {path:"chat-us",component:ChatUsComponent}
 ];
 
 @NgModule({

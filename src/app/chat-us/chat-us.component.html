@@ -1,0 +1,29 @@
+
+
+<div class="col-12 content">
+    <div class="col-sm-4 form-div">
+        <form [formGroup]="chat" class="form-group" (submit)="sendMsg()">
+            <div class="form-group">
+                <label for="name"> : الاسم</label>
+                <input type="text" class="form-control" id="name" name="name" formControlName="name">
+            </div>
+            <div class="form-group">
+                <label for="email">: الايميل</label>
+                <input type="email" class="form-control" id="email" name="email" formControlName="email">
+            </div>
+            <div class="form-group">
+                <label for="phone">: تليفونك</label>
+                <input type="text" class="form-control" id="phone" name="phone" formControlName="phone">
+            </div>
+            <div class="form-group">
+                <label for="msg">: رسالتك</label>
+                <textarea name="msg" id="msg" cols="30" class="form-control" rows="4" formControlName="msg"></textarea>
+            </div>
+            <div class="text-center mt-3">
+                <button type="submit" class="btn btn-outline-info">send</button>
+            </div>
+        </form>
+    </div>
+    <button class="chat"><img src="assets/chat.png" alt="" (click)="pageBack()"></button>
+
+</div>

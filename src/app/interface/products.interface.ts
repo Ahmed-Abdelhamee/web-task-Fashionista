@@ -1,6 +1,9 @@
 export interface shop{
     shopName:string,
     logo:string,
+    phone:string,
+    location:string,
+    id:string
     // productList:products[]
 }
 
@@ -10,6 +13,14 @@ export interface products{
     type:string,
     price:string,
     details:string,
-    shopName:string,
+    shopPhone:string,
     offer:string,
+    id:string
+}
+export interface msg{
+    name:string,
+    phone:string,
+    email:string,
+    msg:string,
+    id:string,
 }

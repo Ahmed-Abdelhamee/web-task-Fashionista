@@ -1,0 +1,62 @@
+
+[class*="col-"]{
+    box-sizing: border-box;
+    float: left;
+}
+.col-12{
+    padding: 0px;
+}
+@media screen and (max-width:600px) {
+    div.content{
+        padding: 5px 2px;
+    }
+    .content div .text{
+        font-size: 13px;
+        word-break: break-all; // removable style
+    }
+    .content div .logo-text{
+        margin-top: 20px;
+        font-size: 20px;
+    }
+    .content div .icons .icon{
+        height: 30px;
+    }
+}
+    
+.content{
+    background-color: rgb(23 61 43 / 85%);
+    display: flex;
+    justify-content: space-evenly;
+    padding: 30px;
+}
+
+.text{
+    font-size: 18px;
+    color: whitesmoke;
+}
+.logo-text{
+    color: rgb(255, 255, 255);
+    margin: 0px 5px;
+    text-transform: capitalize;
+    font-weight: 500;
+    text-align: center;
+    font-size: 26px;
+    margin-bottom: 12px;
+    font-family: "Lemonada", cursive;
+}
+.icons{
+    display: flex;
+    justify-content: space-evenly;
+}
+.icon{
+    height: 40px;
+    margin-top: 15px;
+    box-shadow: 0px 0px 14px white;
+    background: none;
+    border-radius: 40px;
+    background-color: whitesmoke;
+}
+.instagram-icon{
+    border-radius: 8px;
+}
+

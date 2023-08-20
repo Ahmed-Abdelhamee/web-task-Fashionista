@@ -3,18 +3,83 @@
     box-sizing: border-box;
     float: left;
 }
-@media screen and (max-width:600px) {
+.col-12{
+    padding: 0px;
+}
+@media only screen and (max-width: 850px) {
+    div div .carousel-item{
+        height: 550px;
+    }
+    div div .carousel-item img{
+        height: 100%;
+    }
+    div div div .carousel-caption .carsoul-paragraph,
+    div div div .carousel-caption .carsoul-paragraph2{
+        font-size: 2.7vw;
+        right: -6%;
+        width: 62%;
+        top: -400px;
+    }
+    div div div .carousel-caption .carsoul-title,
+    div div div .carousel-caption .carsoul-title2,
+    div div div .carousel-caption .carsoul-title3{
+        font-size: 3.5vw;
+        right: 10%;
+    }
+    div div div .carousel-caption .carsoul-title2{
+        right: 3%;
+    }
+    div div div .carousel-caption .carsoul-title3{
+        right: 0%;
+    }
+}
+@media screen and (max-width:736px) {
     [class*="col-"]{
         width: 100%;
     }
     div.content{
-        // display: block;
-        // height: auto;
-        // margin-bottom: 150px;
-        // background-image: none;
         padding-bottom: 250px;
     }
-
+    div div .carousel-item{
+        height: 320px;
+    }
+    div div .carousel-item img{
+        height: 100%;
+    }
+    div div .carousel-item .carousel-caption {
+        display: block;
+    }
+    div div div .carousel-caption .carsoul-title,
+    div div div .carousel-caption .carsoul-title2,
+    div div div .carousel-caption .carsoul-title3{
+        position: absolute;
+        top: -221px;
+        font-size: 5vw;
+        font-weight: 500;
+        right: 3%;
+    }
+    div div div .carousel-caption .carsoul-title2{
+        right: 1%;
+    }
+    div div div .carousel-caption .carsoul-title3{
+        right: 6%;
+        top: -235px;
+    }
+    div div div .carousel-caption .carsoul-paragraph{
+        position: absolute;
+        top: -190px;
+        font-size: 3.5vw;
+        right: -11%;
+        width: 70%;
+    }
+    div div div .carousel-caption .carsoul-paragraph,
+    div div div .carousel-caption .carsoul-paragraph2{
+        position: absolute;
+        top: -190px;
+        font-size: 4vw;
+        right: -6%;
+        width: 62%;
+    }
     div .store{
         text-align: center;
         font-size: 23px;
@@ -23,19 +88,167 @@
         text-align: center;
         font-size: 18px;
     }
-    div div img{
-        left: 0px;
-        margin-bottom: 20px;
-        margin-top: 5%;
-    }
-    div div .standalone-img{
-        margin-left: 20%;
+    div div .img-static-div .zoom-img{
         margin-bottom: 70px;
-        margin-top: 27%;
+        width: 70%;
+        left: 15%;
+        height: 300px;
+        margin-top: 10px;
     }
     div .categories{
         display: block;
     }
+}
+
+.carousel-item{
+    height: 600px;
+    position: relative;
+}
+.carousel-item img{
+    width: 100%;
+}
+.carousel-item .carousel-caption {
+    display: block;
+}
+.carousel-item .carousel-caption .carsoul-title,
+.carousel-item .carousel-caption .carsoul-title2{
+    position: absolute;
+    top: -450px;
+    font-size: 2.7vw;
+    font-weight: 500;
+    right: 12%;
+    color: #fffffff6;
+}
+.carousel-item .carousel-caption .carsoul-title2{
+    left: -35%;
+}
+.carousel-item .carousel-caption .carsoul-title3{
+    position: relative;
+    font-size: 2.4vw;
+    top: -410px;
+    text-align: center;
+}
+.carousel-item .carousel-caption .carsoul-paragraph{
+    position: absolute;
+    top: -380px;
+    font-size: 2.1vw;
+    right: -4%;
+}
+.carousel-item .carousel-caption .carsoul-paragraph2{
+    position: absolute;
+    top: -380px;
+    font-size: 2.1vw;
+    left: 0%;
+}
+.promo_mobile,.welcome-text-mob{
+    display: none;
+}
+.content{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    perspective: 600px;
+    background-size: cover;
+}
+.store{
+    position: relative;
+    color: #000;
+    font-family: 'Lemonada', cursive;
+    margin-bottom: 20px;
+    text-align: center;
+    font-size: 30px;
+    text-shadow: 0px 7px 5px black;
+    margin-top: 50px;
+}
+h2.store{
+    margin-top: 20px;
+    text-shadow: none;
+    font-size: 22px;
+}
+.img-static-div{
+    height: 400px;
+}
+.zoom-img{
+    position: absolute;
+    top: 20px;
+    left: 40%;
+    animation-name: zooming;
+    animation-duration: 2s;
+    animation-direction: alternate-reverse;
+    animation-iteration-count: infinite;
+    z-index: -1;
+    width: 70%;
+    height: 310px;
+    border-radius: 15px;
+}
+@keyframes zooming {
+    0%{transform: scale(1.1);}
+    100%{transform: scale(1.2,1.2);}
+}
+.categories{
+    display: flex;
+    justify-content: center;
+    padding-top: 50px;
+}
+a{
+    text-decoration: none;
+}
+.category-title{
+    font-family: "Lobster", cursive;
+    font-size: 20px;
+    padding: 5px;
+    color: #000;
+    text-transform: capitalize;
+    bottom: 0px;
+    transition: 1s;
+    right: 0;
+    width: 100%;
+    text-align: center;
+    font-family: 'Lemonada', cursive;
+}
+.category-img{
+    width: 100%;
+    height: 200px;
+    border-radius: 10px 80px;
+    margin-top: 20px;
+    transition: 0.5s;
+    border: none;
+}
+.category-img:hover{
+    box-shadow: 0px 0px 20px black;
+    filter: brightness(60%);
+    transform: translateX(20px);
+}
+
+// .standalone-img{
+//     position: absolute;
+//     height: 400px;
+//     top: -130px;
+//     left: 25%;
+//     animation-name: zooming;
+//     animation-duration: 2s;
+//     animation-direction: normal;
+//     z-index: -1;
+//     width: 87%;
+// }
+
+// @keyframes rotated {
+//     0%{transform: rotate(0deg);}
+//     10%{transform: rotate(0deg);}
+//     20%{transform: rotate(0deg);}
+//     30%{transform: rotate(0deg);}
+//     40%{transform: rotate(0deg);}
+//     50%{transform: rotate(0deg);}
+//     60%{transform: rotate(0deg);}
+//     70%{transform: rotate(340deg);}
+//     80%{transform: rotate(700deg);}
+//     90%{transform: rotate(1060deg);}
+//     100%{transform: rotate(1400deg);}
+// }
+
+// ------------------ mobile old design ------------------
+// @media screen and (max-width:600px) {
     // div div .store.welcome-text-mob{
     //     top: 10%;
     // }
@@ -57,120 +270,9 @@
     //     font-size: 30px;
     //     color: #aa2ff0;
     // }
-}
-.promo_mobile,.welcome-text-mob{
-    display: none;
-}
-.content{
-    display: flex;
-    justify-content: center;
-    // justify-content: flex-end;
-    align-items: center;
-    flex-wrap: wrap;
-    perspective: 600px;
-    // background-image: url(../../assets/fa2.jpg);
-    background-size: cover;
-    // height: 670px;
-}
-.store{
-    position: relative;
-    color: #000;
-    font-family: 'Lemonada', cursive;
-    // font-family: "Lobster", cursive;
-    margin-bottom: 20px;
-    text-align: center;
-    font-size: 30px;
-    text-shadow: 0px 7px 5px black;
-    margin-top: 50px;
-}
-h2.store{
-    margin-top: 20px;
-    text-shadow: none;
-    font-size: 22px;
-}
-.categories{
-    display: flex;
-    justify-content: center;
-}
-.standalone-img,
-.rotated-img{
-    height: 300px;
-    width: 90%;
-    margin-left: 47%;
-    margin-top: 50px;
-    border-radius: 5px;
-    animation-name: zooming;
-    animation-duration: 2s;
-    animation-iteration-count: infinite;
-    animation-direction: alternate;
-    z-index: -1;
+// }
 
-}
-.rotated-img{
-    position: absolute;
-    height: 410px;
-    margin-top: -15px;
-    margin-left: 10px;
-    top: 0;
-    left: 16%;
-    animation-name: as;
-    animation-duration: 2s;
-    animation-direction: normal;
-    // animation-delay: 4s;
-    z-index: -1;
-    width: 100%;
-}
-
-@keyframes zooming {
-    0%{transform: scale(1.1);}
-    100%{transform: scale(1.2,1.2);}
-}
-@keyframes rotated {
-    0%{transform: rotate(0deg);}
-    10%{transform: rotate(0deg);}
-    20%{transform: rotate(0deg);}
-    30%{transform: rotate(0deg);}
-    40%{transform: rotate(0deg);}
-    50%{transform: rotate(0deg);}
-    60%{transform: rotate(0deg);}
-    70%{transform: rotate(340deg);}
-    80%{transform: rotate(700deg);}
-    90%{transform: rotate(1060deg);}
-    100%{transform: rotate(1400deg);}
-}
-
-
-.category-img{
-    width: 100%;
-    height: 155px;
-    border-radius: 10px 60px;
-    margin-top: 20px;
-    transition: 0.5s;
-    border: none;
-}
-.category-img:hover{
-    box-shadow: 0px 0px 20px black;
-    filter: brightness(60%);
-    transform: translateX(20px);
-}
-
-.title{
-    font-family: "Lobster", cursive;
-    font-size: 20px;
-    padding: 5px;
-    color: #000;
-    text-transform: capitalize;
-    bottom: 0px;
-    transition: 1s;
-    right: 0;
-    width: 100%;
-    text-align: center;
-    font-family: 'Lemonada', cursive;
-}
-
-
-
-// old design
+// ------------------ old design desktop ------------------
 // .content{
 //     display: flex;
 //     justify-content: flex-end;
@@ -210,8 +312,6 @@ h2.store{
 //     height: 460px;
 //     width: 80%;
 // }
-
-
 // .title{
 //     position: absolute;
 //     font-family: "Lobster", cursive;

@@ -3,6 +3,8 @@ import { FormBuilder, Validators } from '@angular/forms';
 // write this special code for upload img 
 import { AngularFireStorage } from '@angular/fire/compat/storage';
 import { SetDataService } from 'src/app/services/set-data.service';
+import { ToastrService } from 'ngx-toastr';
+import { msg } from 'src/app/interface/products.interface';
 
 @Component({
   selector: 'app-dash-board',
@@ -11,29 +13,56 @@ import { SetDataService } from 'src/app/services/set-data.service';
 })
 export class DashBoardComponent implements OnInit {
 
-  constructor(private fb:FormBuilder , private firestorage:AngularFireStorage, private dataServ:SetDataService) { }
+  constructor(private fb:FormBuilder , private firestorage:AngularFireStorage, private dataServ:SetDataService,private toaster:ToastrService) { }
 
   uploading:boolean=false;
   logo:string="";
-  productPhoto:string=""
+  productPhoto:string="";
+  date:string=(new Date().toLocaleString().split(",")[0].split("/").join("").concat()+new Date().toLocaleString().split(",")[1].split(":").join("")+new Date().toLocaleString().split(",")[1].split(":")[2].split(" ").join("")).split(" ").join("")
+  userMsgs:msg[]=[];
+  msgShow:msg={
+    name:"",
+    phone:"",
+    email:"",
+    msg:"",
+    id:"",
+  };
+  showForm1:boolean=true;
+  showForm2:boolean=false;
+  userMsgshow:boolean=false;
+  
 
   ngOnInit(): void {
   }
 
   shop=this.fb.group({
     shopName:["",Validators.required],
+    phone:["",Validators.required],
+    location:["",Validators.required],
     logo:[""],
+    id:[this.date,Validators.required]
   })
+  get shopName(){
+    return this.shop.get("shopName")?.value!;
+  }
+
 
   product=this.fb.group({
     productPhoto:["",],
     type:["",Validators.required],
     price:["",Validators.required],
     details:["",Validators.required],
-    shopName:["",Validators.required],
+    shopPhone:["",Validators.required],
     offer:["",],
-    gender:["",Validators.required]
+    gender:["",Validators.required],
+    id:[this.date,Validators.required]
   })
+  get shopNameProduct(){
+    return this.product.get("shopName")?.value!;
+  }
+  get productDetails(){
+    return this.product.get("details")?.value!;
+  }
 
   // funcion to upload img file and get image url
   async uploadImg(event:any){
@@ -65,10 +94,14 @@ export class DashBoardComponent implements OnInit {
 
   createShop(){
     this.shop.patchValue({
-      logo:this.logo
+      logo:this.logo,
     })
+    console.log(this.shop.value)
     if(this.shop.valid){
-      this.dataServ.createShop(this.shop.value)
+      this.dataServ.createShop(this.shop.value);
+      this.toaster.success("تم انشاء المتجر")
+    }else{
+      this.toaster.error("راجع بياناتك")
     }
   }
 
@@ -80,21 +113,50 @@ export class DashBoardComponent implements OnInit {
 
   createProduct(){
     this.product.patchValue({
-      productPhoto:this.productPhoto
+      productPhoto:this.productPhoto,
     })
     if(this.product.valid){
       this.dataServ.createProduct(this.product.value)
-      console.log(this.product.value)
+      this.toaster.success("تم انشاء المنتج")
+    }else{
+      this.toaster.error("راجع بياناتك")
     }
   }
 
+  setUsersMsgs(){
+    this.userMsgs=[]
+    this.dataServ.getUserMsg().subscribe(data =>{
+      for (const key in data) {
+          this.userMsgs.push(data[key])
+      }
+    })
+  }
 
-  showForm1:boolean=true;
   show(form:string){
     if(form=="formShop"){
       this.showForm1=true;
-    }else{
+      this.showForm2=false;
+      this.userMsgshow=false;
+    }if(form=="formProducts"){
       this.showForm1=false;
+      this.showForm2=true;
+      this.userMsgshow=false;
+    }else if(form=="userMsgs"){
+      this.showForm1=false;
+      this.showForm2=false;
+      this.userMsgshow=true;
+      this.setUsersMsgs();
     }
   }
+
+  showMsg(item:msg){
+    this.msgShow=item;
+  }
+  deleteMsg(item:msg){
+    this.dataServ.deleteItem(item.id)
+    this.toaster.success("deleted");
+    this.setUsersMsgs()
+  }
 }
+
+

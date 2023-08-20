@@ -1,1 +1,6 @@
 /* You can add global styles to this file, and also import other style files */
+@import 'node_modules/ngx-toastr/toastr';
+::selection{
+    background-color: rgb(23 61 43 / 85%);
+    color: whitesmoke;
+  }

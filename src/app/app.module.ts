@@ -15,11 +15,17 @@ import { provideStorage,getStorage, StorageModule } from '@angular/fire/storage'
 import { provideRemoteConfig,getRemoteConfig } from '@angular/fire/remote-config';
 import { provideFunctions,getFunctions } from '@angular/fire/functions';
 import {HttpClientModule} from '@angular/common/http'
-// write this special code for upload img 
-import {AngularFireModule, FIREBASE_OPTIONS} from '@angular/fire/compat'
-import {AngularFireStorageModule} from '@angular/fire/compat/storage';
+import {AngularFireModule, FIREBASE_OPTIONS} from '@angular/fire/compat'// write this special code for upload img 
+import {AngularFireStorageModule} from '@angular/fire/compat/storage';// write this special code for upload img 
 import { CategoryComponent } from './category/category.component'
 import { HashLocationStrategy ,LocationStrategy  } from '@angular/common';
+import { HeaderComponent } from './header/header.component';
+import { ZfooterComponent } from './zfooter/zfooter.component';
+import { UrlSafePipe } from './pipes/url-safe.pipe';
+import { ChatUsComponent } from './chat-us/chat-us.component';
+
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ToastrModule } from 'ngx-toastr';
 
 @NgModule({
   declarations: [
@@ -29,6 +35,10 @@ import { HashLocationStrategy ,LocationStrategy  } from '@angular/common';
     ShopsComponent,
     ShopsProductsComponent,
     CategoryComponent,
+    HeaderComponent,
+    ZfooterComponent,
+    UrlSafePipe,
+    ChatUsComponent,
   ],
   imports: [
     BrowserModule,
@@ -45,6 +55,8 @@ import { HashLocationStrategy ,LocationStrategy  } from '@angular/common';
     // write this special code for upload img 
     AngularFireModule,
     AngularFireStorageModule,
+    BrowserAnimationsModule, // required animations module
+    ToastrModule.forRoot(), // ToastrModule added
     
   ],
   providers: [
