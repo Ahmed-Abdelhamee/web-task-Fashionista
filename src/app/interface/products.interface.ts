@@ -14,6 +14,7 @@ export interface products{
     price:string,
     details:string,
     shopPhone:string,
+    shopName:string,
     offer:string,
     id:string
 }

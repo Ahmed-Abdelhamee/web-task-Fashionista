@@ -45,14 +45,14 @@ export class DashBoardComponent implements OnInit {
   get shopName(){
     return this.shop.get("shopName")?.value!;
   }
-
-
+ 
   product=this.fb.group({
     productPhoto:["",],
     type:["",Validators.required],
     price:["",Validators.required],
     details:["",Validators.required],
     shopPhone:["",Validators.required],
+    shopName:["",Validators.required],
     offer:["",],
     gender:["",Validators.required],
     id:[this.date,Validators.required]
@@ -93,16 +93,30 @@ export class DashBoardComponent implements OnInit {
 
 
   createShop(){
+    let shopexist =false;
     this.shop.patchValue({
       logo:this.logo,
     })
-    console.log(this.shop.value)
-    if(this.shop.valid){
-      this.dataServ.createShop(this.shop.value);
-      this.toaster.success("تم انشاء المتجر")
-    }else{
-      this.toaster.error("راجع بياناتك")
-    }
+    this.dataServ.getShops().subscribe(data =>{
+      for (const key in data) {
+        if(data[key].id == this.shop.value.id  && (data[key].phone == this.shop.value.phone && data[key].shopName == this.shop.value.shopName)){
+          shopexist=true;
+          this.toaster.error("مشابة لبيانات متجر آخر")
+          break;
+        }else  if(data[key].id == this.shop.value.id  && (data[key].phone == this.shop.value.phone && data[key].shopName == this.shop.value.shopName)){
+          shopexist=true;
+          this.toaster.error("مشابة لبيانات متجر آخر")
+          break;
+        }
+      }
+      // if(this.shop.valid && !shopexist){
+      //   this.dataServ.createShop(this.shop.value);
+      //   this.toaster.success("تم انشاء المتجر")
+      //   setTimeout(() => { window.location.reload() }, 700);
+      // }else{
+      //   this.toaster.error("راجع بياناتك")
+      // }
+    })
   }
 
   setOffer(val:string){
